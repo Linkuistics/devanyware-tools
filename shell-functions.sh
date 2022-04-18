@@ -18,7 +18,7 @@ EOF
     docker run \
         --rm \
         --volume ${NAME}_checkout:/home/dev/work:rw \
-        linkuistics/devanyware-headless:3.7.0 \
+        linkuistics/devanyware-headless:4.0.0 \
         git clone $GIT_URL
 }
 
@@ -50,7 +50,7 @@ EOF
         --volume /var/run/docker.sock:/var/run/docker.sock:rw \
         --volume ${NAME}_checkout:/home/dev/work:rw \
         --network ${NAME}_default \
-        linkuistics/devanyware-headless:3.7.0 \
+        linkuistics/devanyware-headless:4.0.0 \
         zsh -c "$STARTUP_SCRIPT"
 }
 
@@ -83,7 +83,7 @@ EOF
         --volume /var/run/docker.sock:/var/run/docker.sock:rw \
         --volume ${NAME}_checkout:/home/dev/work:rw \
         --network ${NAME}_default \
-        linkuistics/devanyware-headless:3.7.0 \
+        linkuistics/devanyware-headless:4.0.0 \
         zsh -c "$STARTUP_SCRIPT"
 }
 
@@ -150,7 +150,7 @@ EOF
         --publish ${PORT}:22 \
         --network ${NAME}_default \
         --restart unless-stopped \
-        linkuistics/devanyware-headless:3.7.0 \
+        linkuistics/devanyware-headless:4.0.0 \
         zsh -c "$STARTUP_SCRIPT"
 }
 
