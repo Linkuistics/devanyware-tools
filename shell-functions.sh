@@ -15,11 +15,17 @@ EOF
 
     docker network create ${NAME}_default
 
+    cat ~/.gitconfig > /tmp/g1
+    cat ~/.git-credentials > /tmp/g2
+    chmod ugo+r /tmp/g1 /tmp/g2
     docker run \
         --rm \
         --volume ${NAME}_checkout:/home/dev/work:rw \
+	--volume /tmp/g1:/home/dev/g1 \
+	--volume /tmp/g2:/home/dev/g2 \
         linkuistics/devanyware-headless:4.0.0 \
-        git clone $GIT_URL
+	zsh -c "(cd ; cat g1 > .gitconfig ; cat g2 > .git-credentials) && git clone $GIT_URL"
+   rm /tmp/g1 /tmp/g2
 }
 
 function da/run-prod() {
