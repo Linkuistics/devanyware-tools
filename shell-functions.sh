@@ -23,7 +23,7 @@ EOF
         --volume ${NAME}_checkout:/home/dev/work:rw \
         --volume /tmp/g1:/home/dev/g1 \
         --volume /tmp/g2:/home/dev/g2 \
-        linkuistics/devanyware-headless:4.0.2 \
+        linkuistics/devanyware-headless:5.0.0 \
         zsh -c "(cd ; cat g1 > .gitconfig ; cat g2 > .git-credentials) && git clone $GIT_URL"
    rm /tmp/g1 /tmp/g2
 }
@@ -56,7 +56,7 @@ EOF
         --volume /var/run/docker.sock:/var/run/docker.sock:rw \
         --volume ${NAME}_checkout:/home/dev/work:rw \
         --network ${NAME}_default \
-        linkuistics/devanyware-headless:4.0.2 \
+        linkuistics/devanyware-headless:5.0.0 \
         zsh -c "$STARTUP_SCRIPT"
 }
 
@@ -89,7 +89,7 @@ EOF
         --volume /var/run/docker.sock:/var/run/docker.sock:rw \
         --volume ${NAME}_checkout:/home/dev/work:rw \
         --network ${NAME}_default \
-        linkuistics/devanyware-headless:4.0.2 \
+        linkuistics/devanyware-headless:5.0.0 \
         zsh -c "$STARTUP_SCRIPT"
 }
 
@@ -156,7 +156,7 @@ EOF
         --publish ${PORT}:22 \
         --network ${NAME}_default \
         --restart unless-stopped \
-        linkuistics/devanyware-headless:4.0.2 \
+        linkuistics/devanyware-headless:5.0.0 \
         zsh -c "$STARTUP_SCRIPT"
 }
 
